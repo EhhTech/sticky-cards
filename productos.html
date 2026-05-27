@@ -6,7 +6,7 @@
   <meta name="description" content="Sticky Cards — Explora toda nuestra colección de tarjetas antiestrés portátiles. Busca por color o diseño.">
   <meta name="theme-color" content="#FFFEF8">
   <meta property="og:title" content="Productos — Sticky Cards">
-  <meta property="og:description" content="11 diseños únicos: Regular y Ediciones Especiales. Tarjetas antiestrés portátiles desde $45 MXN.">
+  <meta property="og:description" content="44 diseños únicos: Normal, Especial y Rara. Tarjetas antiestrés a $100 MXN. Formato sorpresa 🎁">
   <meta property="og:type" content="website">
   <meta property="og:image" content="imagenes%20emi/5.jpeg">
   <meta name="twitter:card" content="summary_large_image">
@@ -405,6 +405,10 @@
       border-radius: 50px;
       z-index: 2;
       box-shadow: 0 2px 8px rgba(255,107,26,0.4);
+    }
+    .p-rara-tag {
+      background: linear-gradient(135deg, #9B5DE5, #6B2FA0);
+      box-shadow: 0 2px 8px rgba(107,47,160,0.45);
     }
 
     .p-info { padding: 14px 15px 15px; }
@@ -1005,7 +1009,7 @@
 <div class="page-header fade-up">
   <div class="s-label">Colección completa</div>
   <h1>Todos los<br>Productos</h1>
-  <p>11 diseños únicos para llevar la calma a donde vayas.</p>
+  <p>44 diseños en 3 categorías: Normal, Especial y Rara. Todo a <strong>$100 MXN</strong> · Formato sorpresa 🎁</p>
 </div>
 
 <!-- ─── SEARCH + FILTERS ─── -->
@@ -1026,14 +1030,15 @@
   </div>
   <div class="filters-row" id="filtersRow">
     <button class="fpill active" data-filter="all">Todos</button>
-    <button class="fpill" data-filter="regular">Regular</button>
-    <button class="fpill" data-filter="special">⭐ Especial</button>
+    <button class="fpill" data-filter="normal">Normal</button>
+    <button class="fpill" data-filter="especial">⭐ Especial</button>
+    <button class="fpill" data-filter="rara">💫 Rara</button>
     <div class="filter-sep"></div>
     <select class="sort-select" id="sortSelect" aria-label="Ordenar productos">
       <option value="default">Ordenar</option>
-      <option value="price-asc">Precio: menor a mayor</option>
-      <option value="price-desc">Precio: mayor a menor</option>
       <option value="name">Nombre A–Z</option>
+      <option value="type-asc">Normal → Especial → Rara</option>
+      <option value="type-desc">Rara → Especial → Normal</option>
     </select>
   </div>
 </div>
@@ -1041,7 +1046,7 @@
 <!-- ─── RESULTS INFO ─── -->
 <div class="results-info">
   <div class="results-count" id="resultsCount">
-    Mostrando <strong>11</strong> productos
+    Mostrando <strong>44</strong> productos
   </div>
 </div>
 
@@ -1149,83 +1154,55 @@
    DATA
 ════════════════════════════════ */
 const PRODUCTS = [
-  {
-    id:1, name:"Negro", icon:"🎮",
-    color:"#1C1C1E", text:"#fff",
-    design:"Diseño Gamepad", price:45, type:"regular",
-    desc:"Para los gamers que necesitan calma entre partidas. Gel negro profundo con diseño de control en relieve. Discreta, elegante y satisfactoria al tacto.",
-    keywords:"negro gamepad control juego"
-  },
-  {
-    id:2, name:"Lila", icon:"🌙",
-    color:"#9B59B6", text:"#fff",
-    design:"Diseño Luna", price:45, type:"regular",
-    desc:"Perfecta para noches de estudio. Luna y estrella en gel lila suave que calma la mente cuando más lo necesitas.",
-    keywords:"lila morado luna estrella noche"
-  },
-  {
-    id:3, name:"Turquesa", icon:"☁️",
-    color:"#1ABC9C", text:"#fff",
-    design:"Diseño Nube", price:45, type:"regular",
-    desc:"Tan ligera como una nube. Gel turquesa refrescante con nube en relieve para esos momentos de agobio que necesitan un descanso.",
-    keywords:"turquesa verde agua nube cielo"
-  },
-  {
-    id:4, name:"Morado", icon:"🪐",
-    color:"#6C3483", text:"#fff",
-    design:"Diseño Planeta", price:45, type:"regular",
-    desc:"Lleva el universo contigo. Saturno en gel morado profundo para astronautas del estrés que buscan calma galáctica.",
-    keywords:"morado purpura planeta saturno universo espacio"
-  },
-  {
-    id:5, name:"Rojo", icon:"🍒",
-    color:"#C0392B", text:"#fff",
-    design:"Diseño Cerezas", price:45, type:"regular",
-    desc:"Dulce y refrescante. Cerezas en gel rojo vibrante para endulzar tus momentos más difíciles con un toque de color.",
-    keywords:"rojo cereza rojo fruta"
-  },
-  {
-    id:6, name:"Amarillo", icon:"⭐",
-    color:"#E8B800", text:"#333",
-    design:"Diseño Estrella", price:45, type:"regular",
-    desc:"Brillante como tú. Estrella en gel amarillo solar para los días en que necesitas un extra de energía y buena vibra.",
-    keywords:"amarillo dorado estrella sol brillo"
-  },
-  {
-    id:7, name:"Naranja", icon:"🌸",
-    color:"#E67E22", text:"#fff",
-    design:"Diseño Flor", price:45, type:"regular",
-    desc:"Florece aunque estés estresado. Flor en gel naranja cálido que trae buena vibra y recuerda que todo pasa.",
-    keywords:"naranja flor primavera calidez"
-  },
-  {
-    id:8, name:"Azul", icon:"⚡",
-    color:"#2980B9", text:"#fff",
-    design:"Diseño Rayo", price:45, type:"regular",
-    desc:"Para mentes veloces. Rayo en gel azul eléctrico para cuando la energía se desborda y necesitas canalizarla.",
-    keywords:"azul rayo electrico energia"
-  },
-  {
-    id:9, name:"Verde", icon:"😊",
-    color:"#27AE60", text:"#fff",
-    design:"Diseño Sonrisa", price:45, type:"regular",
-    desc:"La actitud lo es todo. Sonrisa en gel verde vibrante para recordarte siempre que hay razones para sonreír.",
-    keywords:"verde sonrisa feliz smiley naturaleza"
-  },
-  {
-    id:10, name:"Corazón Rosa", icon:"💖",
-    color:"linear-gradient(135deg,#FF69B4 0%,#FF1493 55%,#C71585 100%)", text:"#fff",
-    design:"Edición Especial · Glitter brillante", price:75, type:"special",
-    desc:"¡Llena de brillo y magia! Corazón en gel rosa con acabado glitter que brilla en la palma de tu mano. Edición especial limitada.",
-    keywords:"rosa corazon especial brillo glitter brillante amor"
-  },
-  {
-    id:11, name:"Diamante", icon:"💎",
-    color:"linear-gradient(135deg,#E8D5FF 0%,#B8E8FF 40%,#FFE0F0 70%,#C8FFE0 100%)", text:"#444",
-    design:"Edición Especial · Brilla en la oscuridad", price:75, type:"special",
-    desc:"¡Brilla en la oscuridad! Diamante holográfico con acabado iridiscente que cambia de color con la luz. El más exclusivo de la colección.",
-    keywords:"diamante especial holografico iridiscente oscuridad brillo"
-  }
+  // ─── NORMAL ───
+  { id:1,  name:"Turquesa",          icon:"☁️",  color:"#1ABC9C",                                                                   text:"#fff",    design:"Diseño Nube",           price:100, type:"normal",   desc:"Tan ligera como una nube. Gel turquesa refrescante con nube en relieve para esos momentos que necesitan un descanso.", keywords:"turquesa verde agua nube cielo" },
+  { id:2,  name:"Azul",              icon:"⚡",  color:"#2980B9",                                                                   text:"#fff",    design:"Diseño Rayo",           price:100, type:"normal",   desc:"Para mentes veloces. Rayo en gel azul eléctrico para cuando la energía se desborda y necesitas canalizarla.", keywords:"azul rayo electrico energia" },
+  { id:3,  name:"Morado",            icon:"🪐",  color:"#7D3C98",                                                                   text:"#fff",    design:"Diseño Planeta",        price:100, type:"normal",   desc:"Lleva el universo contigo. Saturno en gel morado profundo para astronautas del estrés que buscan calma galáctica.", keywords:"morado purpura planeta saturno espacio" },
+  { id:4,  name:"Rosa",              icon:"🩷",  color:"#F48FB1",                                                                   text:"#fff",    design:"Diseño Corazón",        price:100, type:"normal",   desc:"Suave y cariñosa. Corazón en gel rosa para los momentos en que necesitas un abrazo en la palma de tu mano.", keywords:"rosa corazon amor suave" },
+  { id:5,  name:"Vino",              icon:"🪩",  color:"#8B2252",                                                                   text:"#fff",    design:"Diseño Bola Disco",     price:100, type:"normal",   desc:"Baila el estrés. Bola disco en gel vino oscuro para cuando necesitas soltar todo y moverte.", keywords:"vino disco baile morado oscuro" },
+  { id:6,  name:"Lavanda",           icon:"🤍",  color:"#B39DDB",                                                                   text:"#fff",    design:"Diseño Corazón",        price:100, type:"normal",   desc:"Delicada y serena. Corazón en gel lavanda para noches tranquilas y momentos de calma total.", keywords:"lavanda morado claro corazon calma" },
+  { id:7,  name:"Menta",             icon:"🍃",  color:"#A8E6CF",                                                                   text:"#2d6a4f", design:"Diseño Hoja",           price:100, type:"normal",   desc:"Refrescante como una brisa. Hoja en gel menta para resetear la mente y respirar diferente.", keywords:"menta verde hoja fresco naturaleza" },
+  { id:8,  name:"Verde Pasto",       icon:"🍀",  color:"#4CAF50",                                                                   text:"#fff",    design:"Diseño Trébol",         price:100, type:"normal",   desc:"La suerte está en tus manos. Trébol en gel verde pasto para atraer buena vibra a cada momento.", keywords:"verde pasto trebol suerte naturaleza" },
+  { id:9,  name:"Rojo",              icon:"🍒",  color:"#C0392B",                                                                   text:"#fff",    design:"Diseño Cerezas",        price:100, type:"normal",   desc:"Dulce y refrescante. Cerezas en gel rojo vibrante para endulzar tus momentos más difíciles.", keywords:"rojo cereza fruta dulce" },
+  { id:10, name:"Naranja",           icon:"🌸",  color:"#E67E22",                                                                   text:"#fff",    design:"Diseño Flor",           price:100, type:"normal",   desc:"Florece aunque estés estresado. Flor en gel naranja cálido que trae buena vibra y recuerda que todo pasa.", keywords:"naranja flor primavera calidez" },
+  { id:11, name:"Amarillo",          icon:"⭐",  color:"#F4C430",                                                                   text:"#333",    design:"Diseño Estrella",       price:100, type:"normal",   desc:"Brillante como tú. Estrella en gel amarillo solar para los días en que necesitas un extra de energía.", keywords:"amarillo dorado estrella sol brillo" },
+  { id:12, name:"Verde",             icon:"😊",  color:"#27AE60",                                                                   text:"#fff",    design:"Diseño Sonrisa",        price:100, type:"normal",   desc:"La actitud lo es todo. Sonrisa en gel verde vibrante para recordarte siempre que hay razones para sonreír.", keywords:"verde sonrisa feliz smiley" },
+  { id:13, name:"Celeste",           icon:"🌟",  color:"#74B9FF",                                                                   text:"#1a5276", design:"Diseño Estrella",       price:100, type:"normal",   desc:"Ligero y brillante. Estrella en gel celeste suave para esos días que necesitan más luz.", keywords:"celeste azul claro estrella luz" },
+  { id:14, name:"Azul Marino",       icon:"🪐",  color:"#1B4F72",                                                                   text:"#fff",    design:"Diseño Planeta",        price:100, type:"normal",   desc:"Profundo y tranquilo. Planeta en gel azul marino para explorar la calma en lo más profundo.", keywords:"azul marino oscuro planeta universo" },
+  { id:15, name:"Índigo",            icon:"🌙",  color:"#3F3D8B",                                                                   text:"#fff",    design:"Diseño Luna",           price:100, type:"normal",   desc:"Para noches de introspección. Luna en gel índigo profundo que calma la mente cuando más lo necesitas.", keywords:"indigo azul morado luna noche" },
+  { id:16, name:"Magenta",           icon:"🦋",  color:"#D81B60",                                                                   text:"#fff",    design:"Diseño Mariposa",       price:100, type:"normal",   desc:"Transforma el estrés. Mariposa en gel magenta vibrante que te recuerda que los cambios son hermosos.", keywords:"magenta rosa intenso mariposa transformacion" },
+  { id:17, name:"Lila",              icon:"🌙",  color:"#9B59B6",                                                                   text:"#fff",    design:"Diseño Luna y Estrella",price:100, type:"normal",   desc:"Perfecta para noches de estudio. Luna y estrella en gel lila suave que calma la mente.", keywords:"lila morado luna estrella noche" },
+  { id:18, name:"Coral",             icon:"🎀",  color:"#FF7F7F",                                                                   text:"#fff",    design:"Diseño Moño",           price:100, type:"normal",   desc:"Dulce y alegre. Moño en gel coral para los que llevan el estilo hasta en sus momentos de calma.", keywords:"coral rosa moño dulce estilo" },
+  { id:19, name:"Durazno",           icon:"🌷",  color:"#FFAB76",                                                                   text:"#7B3F00", design:"Diseño Flor",           price:100, type:"normal",   desc:"Cálido y reconfortante. Flor en gel durazno para esos momentos que necesitan calidez y ternura.", keywords:"durazno naranja claro flor calidez" },
+  { id:20, name:"Verde Claro",       icon:"🥑",  color:"#90EE90",                                                                   text:"#2d5a27", design:"Diseño Aguacate",       price:100, type:"normal",   desc:"Saludable y fresco. Aguacate en gel verde claro para los que viven con estilo y quieren su dosis de calma.", keywords:"verde claro aguacate fresco" },
+  { id:21, name:"Lima",              icon:"👽",  color:"#C8E632",                                                                   text:"#3d5016", design:"Diseño Alien",          price:100, type:"normal",   desc:"Fuera de este mundo. Alien en gel lima brillante para los que saben que el estrés es de otro planeta.", keywords:"lima verde limon alien extraterrestre" },
+  { id:22, name:"Café Claro",        icon:"🐻",  color:"#C8A882",                                                                   text:"#fff",    design:"Diseño Oso",            price:100, type:"normal",   desc:"Cálido y acogedor. Oso en gel café claro para los momentos de ternura y abrazo reconfortante.", keywords:"cafe marron oso calido tierno" },
+  { id:23, name:"Gris",              icon:"🎮",  color:"#7F8C8D",                                                                   text:"#fff",    design:"Diseño Gamepad",        price:100, type:"normal",   desc:"Discreta y funcional. Gamepad en gel gris para los gamers que necesitan calma entre partidas.", keywords:"gris gamepad control juego discreto" },
+  { id:24, name:"Negro",             icon:"🎮",  color:"#1C1C1E",                                                                   text:"#fff",    design:"Diseño Gamepad",        price:100, type:"normal",   desc:"Elegante y clásica. Gel negro profundo con diseño de control. Discreta, elegante y satisfactoria al tacto.", keywords:"negro gamepad control juego oscuro" },
+
+  // ─── ESPECIAL ───
+  { id:25, name:"Corazón Brillante", icon:"💖",  color:"linear-gradient(135deg,#FF85A1 0%,#FF1493 50%,#C71585 100%)",               text:"#fff",    design:"Edición Especial · Glitter",         price:100, type:"especial", desc:"¡Llena de brillo y magia! Corazón en gel rosa con acabado glitter que brilla en la palma de tu mano.", keywords:"rosa corazon especial brillo glitter brillante amor" },
+  { id:26, name:"Arcoiris",          icon:"🌈",  color:"linear-gradient(135deg,#FF6B6B 0%,#FFA500 20%,#FFD700 40%,#6BCB77 60%,#4D96FF 80%,#9B5DE5 100%)", text:"#fff", design:"Edición Especial · Multicolor", price:100, type:"especial", desc:"Todos los colores en una sola tarjeta. El arcoiris en tus manos para los días que necesitan de todo.", keywords:"arcoiris multicolor colores especial" },
+  { id:27, name:"Holográfico Claro", icon:"✨",  color:"linear-gradient(135deg,#F0F0F0 0%,#CCE8FF 25%,#F0D8FF 50%,#D8FFE8 75%,#FFFFF0 100%)", text:"#666", design:"Edición Especial · Iridiscente",   price:100, type:"especial", desc:"Cambia de color con la luz. Acabado iridiscente holográfico que captura todos los reflejos del arcoíris.", keywords:"holografico claro iridiscente especial brillante" },
+  { id:28, name:"Holográfico Rosa",  icon:"💿",  color:"linear-gradient(135deg,#FFB6C1 0%,#FF69B4 30%,#C0A8D0 65%,#B8D8FF 100%)",  text:"#fff",    design:"Edición Especial · Holo Pink",       price:100, type:"especial", desc:"Rosa holográfico que refleja la luz de manera mágica. La combinación perfecta de dulce y glamour.", keywords:"holografico rosa brillante especial glamour" },
+  { id:29, name:"Corazón Rosa",      icon:"💗",  color:"linear-gradient(135deg,#FF69B4 0%,#FF1493 55%,#C71585 100%)",               text:"#fff",    design:"Edición Especial · Rosa Intenso",    price:100, type:"especial", desc:"Intenso y romántico. Corazón en gel rosa profundo con acabado especial para los que aman con todo.", keywords:"rosa corazon intenso especial amor" },
+  { id:30, name:"Diamante",          icon:"💎",  color:"linear-gradient(135deg,#E8D5FF 0%,#B8E8FF 40%,#FFE0F0 70%,#C8FFE0 100%)",  text:"#555",    design:"Edición Especial · Brilla en la oscuridad", price:100, type:"especial", desc:"¡Brilla en la oscuridad! Diamante holográfico con acabado iridiscente que cambia de color con la luz.", keywords:"diamante especial holografico oscuridad brillo cristal" },
+  { id:31, name:"Estrella Dorada",   icon:"⭐",  color:"linear-gradient(135deg,#FFD700 0%,#FFA500 40%,#FFD700 75%,#FFFACD 100%)",  text:"#7B4A00", design:"Edición Especial · Oro Brillante",   price:100, type:"especial", desc:"Brilla como el oro. Estrella en gel dorado con acabado metalizado para los que merecen lo mejor.", keywords:"dorado estrella oro brillante metalico especial" },
+  { id:32, name:"Holográfico Verde", icon:"🌿",  color:"linear-gradient(135deg,#A8E6CF 0%,#56C596 30%,#B8F0D8 65%,#C8E8FF 100%)", text:"#1a6040", design:"Edición Especial · Holo Verde",       price:100, type:"especial", desc:"Verde holográfico que cambia de tono como una esmeralda viva. Naturaleza y magia en tus manos.", keywords:"holografico verde esmeralda especial naturaleza" },
+  { id:33, name:"Confeti Multicolor",icon:"🎊",  color:"linear-gradient(135deg,#FF6B6B 0%,#FFD93D 25%,#6BCB77 50%,#4D96FF 75%,#FF6B9D 100%)", text:"#fff", design:"Edición Especial · Fiesta",    price:100, type:"especial", desc:"¡Que empiece la fiesta! Gel transparente con confeti multicolor flotando en su interior. Pura alegría.", keywords:"confeti multicolor fiesta alegria especial" },
+  { id:34, name:"Confeti Rosa",      icon:"🎀",  color:"linear-gradient(135deg,#FFB6C1 0%,#FF85A1 40%,#FFD6E0 70%,#FFC0CB 100%)", text:"#8B2252", design:"Edición Especial · Rosa Fiesta",     price:100, type:"especial", desc:"Gel rosa con confeti brillante para las que llevan la fiesta a todas partes con estilo y glamour.", keywords:"confeti rosa fiesta brillante especial glamour" },
+
+  // ─── RARA ───
+  { id:35, name:"Galaxia",           icon:"🌌",  color:"linear-gradient(135deg,#0D0D2B 0%,#1A1A4E 25%,#2D1B69 50%,#0D0D2B 80%)",  text:"#C8B0FF", design:"Edición Rara · Cosmos",              price:100, type:"rara", desc:"El universo en tus manos. Gel azul galaxia con destellos plateados que simula el espacio profundo.", keywords:"galaxia cosmos universo espacio rara" },
+  { id:36, name:"Neón Verde",        icon:"💚",  color:"linear-gradient(135deg,#0D1B0D 0%,#003B00 30%,#00C820 60%,#39FF14 100%)", text:"#39FF14",  design:"Edición Rara · Neon Glow",           price:100, type:"rara", desc:"¡Brilla en la oscuridad! Gel con efecto neón verde que resplandece bajo luz ultravioleta.", keywords:"neon verde brilla oscuridad fluorescente rara uv" },
+  { id:37, name:"Neón Rosa",         icon:"🩷",  color:"linear-gradient(135deg,#1A001A 0%,#6B006B 30%,#DD00AA 65%,#FF69B4 100%)", text:"#FF69B4",  design:"Edición Rara · Neon Pink",           price:100, type:"rara", desc:"Rosa eléctrico que brilla bajo luz negra. El accesorio más llamativo de tu colección.", keywords:"neon rosa brillante oscuridad uv fluorescente rara" },
+  { id:38, name:"Cookies & Cream",   icon:"🍪",  color:"linear-gradient(135deg,#1A1A1A 0%,#3D3D3D 30%,#F0F0E8 55%,#3D3D3D 75%,#1A1A1A 100%)", text:"#F0F0E8", design:"Edición Rara · Mármol Negro", price:100, type:"rara", desc:"Contraste absoluto. El diseño más elegante y dramático de la colección. Negro y crema en perfecta armonía.", keywords:"cookies cream negro blanco marmol elegante rara" },
+  { id:39, name:"Terrazo",           icon:"🪨",  color:"linear-gradient(135deg,#F5F0E8 0%,#DDD8C8 25%,#F5F0E8 50%,#C8B8A0 70%,#E8E0D0 100%)", text:"#5D4037", design:"Edición Rara · Textura Única", price:100, type:"rara", desc:"Arte en cada centímetro. Gel con patrón terrazo único que ninguna otra tarjeta puede igualar.", keywords:"terrazo textura unico piedra rara arte" },
+  { id:40, name:"Aurora Boreal",     icon:"🌌",  color:"linear-gradient(135deg,#0A1628 0%,#0B3D6E 20%,#0E7C6A 40%,#2D9A6A 60%,#7B4F9E 80%,#0A1628 100%)", text:"#A8F0E0", design:"Edición Rara · Luces del Norte", price:100, type:"rara", desc:"Las luces del norte en tus manos. Colores que danzan como la aurora boreal en el cielo ártico.", keywords:"aurora boreal luces norte verde azul purpura rara" },
+  { id:41, name:"Nebulosa",          icon:"🔭",  color:"linear-gradient(135deg,#1A0533 0%,#4A0080 25%,#800080 48%,#CC3399 70%,#FF6699 88%,#1A0533 100%)", text:"#FFD0F0", design:"Edición Rara · Deep Space", price:100, type:"rara", desc:"Nace una estrella. Gel con colores de nebulosa estelar, rosa y morado profundo que hipnotiza.", keywords:"nebulosa espacio estrellas morado rosa profundo rara" },
+  { id:42, name:"Mármol Rosa",       icon:"🌸",  color:"linear-gradient(135deg,#F8E8F0 0%,#E8C0D0 25%,#F8E8F0 55%,#D0A0B8 75%,#F0D8E8 100%)", text:"#8B4060", design:"Edición Rara · Marble Rose",   price:100, type:"rara", desc:"Elegancia pura. Vetas de mármol rosa en gel translúcido para los que tienen gusto por lo refinado.", keywords:"marmol rosa elegante vetas refinado rara" },
+  { id:43, name:"Mármol Azul",       icon:"💎",  color:"linear-gradient(135deg,#E8F0F8 0%,#B8C8E8 25%,#E8F0F8 55%,#8898C8 75%,#D0E0F0 100%)", text:"#1a3a6a", design:"Edición Rara · Marble Blue",  price:100, type:"rara", desc:"Frío y majestuoso. Mármol azul profundo con vetas delicadas para una estética de lujo minimalista.", keywords:"marmol azul elegante vetas lujo rara frio" },
+  { id:44, name:"Mármol Morado",     icon:"🟣",  color:"linear-gradient(135deg,#EEE8F8 0%,#C8B0E8 25%,#EEE8F8 55%,#A888D0 75%,#E0D0F0 100%)", text:"#4a2080", design:"Edición Rara · Marble Purple", price:100, type:"rara", desc:"Misterioso y lujoso. Vetas de mármol morado translúcido para la pieza más artística de tu colección.", keywords:"marmol morado lujo arte vetas misterioso rara" },
 ];
 
 const CART_KEY = 'sticky-cards-cart';
@@ -1271,9 +1248,9 @@ function getFilteredProducts() {
   }
 
   // Sort
-  if (currentSort === 'price-asc') list.sort((a,b) => a.price - b.price);
-  else if (currentSort === 'price-desc') list.sort((a,b) => b.price - a.price);
-  else if (currentSort === 'name') list.sort((a,b) => a.name.localeCompare(b.name, 'es'));
+  if (currentSort === 'name') list.sort((a,b) => a.name.localeCompare(b.name, 'es'));
+  else if (currentSort === 'type-asc') { const o={normal:0,especial:1,rara:2}; list.sort((a,b) => (o[a.type]||0)-(o[b.type]||0)); }
+  else if (currentSort === 'type-desc') { const o={normal:0,especial:1,rara:2}; list.sort((a,b) => (o[b.type]||0)-(o[a.type]||0)); }
 
   return list;
 }
@@ -1307,7 +1284,7 @@ function renderProducts() {
       onkeydown="if(event.key==='Enter'||event.key===' ')openModal(${p.id})"
     >
       <div class="p-visual" style="background:${p.color}">
-        ${p.type === 'special' ? '<div class="p-special-tag">⭐ Especial</div>' : ''}
+        ${p.type === 'especial' ? '<div class="p-special-tag">⭐ Especial</div>' : p.type === 'rara' ? '<div class="p-special-tag p-rara-tag">💫 Rara</div>' : ''}
         <span class="p-icon" role="img" aria-label="${p.design}">${p.icon}</span>
       </div>
       <div class="p-info">
@@ -1402,7 +1379,17 @@ function openModal(id) {
   document.getElementById('qVal').textContent = '1';
 
   const badge = document.getElementById('modalBadge');
-  badge.classList.toggle('hidden', p.type !== 'special');
+  if (p.type === 'especial') {
+    badge.classList.remove('hidden');
+    badge.textContent = '⭐ Edición Especial';
+    badge.style.background = 'linear-gradient(135deg, #FF6B1A, #FF3CAC)';
+  } else if (p.type === 'rara') {
+    badge.classList.remove('hidden');
+    badge.textContent = '💫 Edición Rara';
+    badge.style.background = 'linear-gradient(135deg, #9B5DE5, #6B2FA0)';
+  } else {
+    badge.classList.add('hidden');
+  }
 
   const overlay = document.getElementById('modalOverlay');
   overlay.classList.add('open');

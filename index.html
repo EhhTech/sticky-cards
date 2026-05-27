@@ -547,6 +547,10 @@
       z-index: 2;
       box-shadow: 0 2px 8px rgba(255,107,26,0.4);
     }
+    .p-rara-tag {
+      background: linear-gradient(135deg, #9B5DE5, #6B2FA0);
+      box-shadow: 0 2px 8px rgba(107,47,160,0.45);
+    }
 
     .p-info {
       padding: 14px 16px 16px;
@@ -1330,17 +1334,53 @@
    DATA
 ══════════════════════════════════════ */
 const PRODUCTS = [
-  { id:1,  name:"Negro",        icon:"🎮", color:"#1C1C1E",          text:"#fff",  design:"Diseño Gamepad",                        price:45, type:"regular" },
-  { id:2,  name:"Lila",         icon:"🌙", color:"#9B59B6",          text:"#fff",  design:"Diseño Luna",                           price:45, type:"regular" },
-  { id:3,  name:"Turquesa",     icon:"☁️", color:"#1ABC9C",          text:"#fff",  design:"Diseño Nube",                           price:45, type:"regular" },
-  { id:4,  name:"Morado",       icon:"🪐", color:"#6C3483",          text:"#fff",  design:"Diseño Planeta",                        price:45, type:"regular" },
-  { id:5,  name:"Rojo",         icon:"🍒", color:"#C0392B",          text:"#fff",  design:"Diseño Cerezas",                        price:45, type:"regular" },
-  { id:6,  name:"Amarillo",     icon:"⭐", color:"#F4D03F",          text:"#333",  design:"Diseño Estrella",                       price:45, type:"regular" },
-  { id:7,  name:"Naranja",      icon:"🌸", color:"#E67E22",          text:"#fff",  design:"Diseño Flor",                           price:45, type:"regular" },
-  { id:8,  name:"Azul",         icon:"⚡", color:"#2980B9",          text:"#fff",  design:"Diseño Rayo",                           price:45, type:"regular" },
-  { id:9,  name:"Verde",        icon:"😊", color:"#27AE60",          text:"#fff",  design:"Diseño Sonrisa",                        price:45, type:"regular" },
-  { id:10, name:"Corazón Rosa", icon:"💖", color:"linear-gradient(135deg,#FF69B4 0%,#FF1493 60%,#C71585 100%)", text:"#fff", design:"Edición Especial · ¡Llena de brillo y magia!", price:75, type:"special" },
-  { id:11, name:"Diamante",     icon:"💎", color:"linear-gradient(135deg,#E8D5FF 0%,#B8E8FF 40%,#FFE0F0 70%,#C8FFE0 100%)", text:"#444", design:"Edición Especial · ¡Brilla en la oscuridad!", price:75, type:"special" },
+  // ─── NORMAL ───
+  { id:1,  name:"Turquesa",          icon:"☁️",  color:"#1ABC9C",                                                                   text:"#fff",    design:"Diseño Nube",           price:100, type:"normal" },
+  { id:2,  name:"Azul",              icon:"⚡",  color:"#2980B9",                                                                   text:"#fff",    design:"Diseño Rayo",           price:100, type:"normal" },
+  { id:3,  name:"Morado",            icon:"🪐",  color:"#7D3C98",                                                                   text:"#fff",    design:"Diseño Planeta",        price:100, type:"normal" },
+  { id:4,  name:"Rosa",              icon:"🩷",  color:"#F48FB1",                                                                   text:"#fff",    design:"Diseño Corazón",        price:100, type:"normal" },
+  { id:5,  name:"Vino",              icon:"🪩",  color:"#8B2252",                                                                   text:"#fff",    design:"Diseño Bola Disco",     price:100, type:"normal" },
+  { id:6,  name:"Lavanda",           icon:"🤍",  color:"#B39DDB",                                                                   text:"#fff",    design:"Diseño Corazón",        price:100, type:"normal" },
+  { id:7,  name:"Menta",             icon:"🍃",  color:"#A8E6CF",                                                                   text:"#2d6a4f", design:"Diseño Hoja",           price:100, type:"normal" },
+  { id:8,  name:"Verde Pasto",       icon:"🍀",  color:"#4CAF50",                                                                   text:"#fff",    design:"Diseño Trébol",         price:100, type:"normal" },
+  { id:9,  name:"Rojo",              icon:"🍒",  color:"#C0392B",                                                                   text:"#fff",    design:"Diseño Cerezas",        price:100, type:"normal" },
+  { id:10, name:"Naranja",           icon:"🌸",  color:"#E67E22",                                                                   text:"#fff",    design:"Diseño Flor",           price:100, type:"normal" },
+  { id:11, name:"Amarillo",          icon:"⭐",  color:"#F4C430",                                                                   text:"#333",    design:"Diseño Estrella",       price:100, type:"normal" },
+  { id:12, name:"Verde",             icon:"😊",  color:"#27AE60",                                                                   text:"#fff",    design:"Diseño Sonrisa",        price:100, type:"normal" },
+  { id:13, name:"Celeste",           icon:"🌟",  color:"#74B9FF",                                                                   text:"#1a5276", design:"Diseño Estrella",       price:100, type:"normal" },
+  { id:14, name:"Azul Marino",       icon:"🪐",  color:"#1B4F72",                                                                   text:"#fff",    design:"Diseño Planeta",        price:100, type:"normal" },
+  { id:15, name:"Índigo",            icon:"🌙",  color:"#3F3D8B",                                                                   text:"#fff",    design:"Diseño Luna",           price:100, type:"normal" },
+  { id:16, name:"Magenta",           icon:"🦋",  color:"#D81B60",                                                                   text:"#fff",    design:"Diseño Mariposa",       price:100, type:"normal" },
+  { id:17, name:"Lila",              icon:"🌙",  color:"#9B59B6",                                                                   text:"#fff",    design:"Diseño Luna y Estrella",price:100, type:"normal" },
+  { id:18, name:"Coral",             icon:"🎀",  color:"#FF7F7F",                                                                   text:"#fff",    design:"Diseño Moño",           price:100, type:"normal" },
+  { id:19, name:"Durazno",           icon:"🌷",  color:"#FFAB76",                                                                   text:"#7B3F00", design:"Diseño Flor",           price:100, type:"normal" },
+  { id:20, name:"Verde Claro",       icon:"🥑",  color:"#90EE90",                                                                   text:"#2d5a27", design:"Diseño Aguacate",       price:100, type:"normal" },
+  { id:21, name:"Lima",              icon:"👽",  color:"#C8E632",                                                                   text:"#3d5016", design:"Diseño Alien",          price:100, type:"normal" },
+  { id:22, name:"Café Claro",        icon:"🐻",  color:"#C8A882",                                                                   text:"#fff",    design:"Diseño Oso",            price:100, type:"normal" },
+  { id:23, name:"Gris",              icon:"🎮",  color:"#7F8C8D",                                                                   text:"#fff",    design:"Diseño Gamepad",        price:100, type:"normal" },
+  { id:24, name:"Negro",             icon:"🎮",  color:"#1C1C1E",                                                                   text:"#fff",    design:"Diseño Gamepad",        price:100, type:"normal" },
+  // ─── ESPECIAL ───
+  { id:25, name:"Corazón Brillante", icon:"💖",  color:"linear-gradient(135deg,#FF85A1 0%,#FF1493 50%,#C71585 100%)",               text:"#fff",    design:"Edición Especial · Glitter",         price:100, type:"especial" },
+  { id:26, name:"Arcoiris",          icon:"🌈",  color:"linear-gradient(135deg,#FF6B6B 0%,#FFA500 20%,#FFD700 40%,#6BCB77 60%,#4D96FF 80%,#9B5DE5 100%)", text:"#fff", design:"Edición Especial · Multicolor", price:100, type:"especial" },
+  { id:27, name:"Holográfico Claro", icon:"✨",  color:"linear-gradient(135deg,#F0F0F0 0%,#CCE8FF 25%,#F0D8FF 50%,#D8FFE8 75%,#FFFFF0 100%)", text:"#666", design:"Edición Especial · Iridiscente",   price:100, type:"especial" },
+  { id:28, name:"Holográfico Rosa",  icon:"💿",  color:"linear-gradient(135deg,#FFB6C1 0%,#FF69B4 30%,#C0A8D0 65%,#B8D8FF 100%)",  text:"#fff",    design:"Edición Especial · Holo Pink",       price:100, type:"especial" },
+  { id:29, name:"Corazón Rosa",      icon:"💗",  color:"linear-gradient(135deg,#FF69B4 0%,#FF1493 55%,#C71585 100%)",               text:"#fff",    design:"Edición Especial · Rosa Intenso",    price:100, type:"especial" },
+  { id:30, name:"Diamante",          icon:"💎",  color:"linear-gradient(135deg,#E8D5FF 0%,#B8E8FF 40%,#FFE0F0 70%,#C8FFE0 100%)",  text:"#555",    design:"Edición Especial · Brilla en oscuridad", price:100, type:"especial" },
+  { id:31, name:"Estrella Dorada",   icon:"⭐",  color:"linear-gradient(135deg,#FFD700 0%,#FFA500 40%,#FFD700 75%,#FFFACD 100%)",  text:"#7B4A00", design:"Edición Especial · Oro Brillante",   price:100, type:"especial" },
+  { id:32, name:"Holográfico Verde", icon:"🌿",  color:"linear-gradient(135deg,#A8E6CF 0%,#56C596 30%,#B8F0D8 65%,#C8E8FF 100%)", text:"#1a6040", design:"Edición Especial · Holo Verde",       price:100, type:"especial" },
+  { id:33, name:"Confeti Multicolor",icon:"🎊",  color:"linear-gradient(135deg,#FF6B6B 0%,#FFD93D 25%,#6BCB77 50%,#4D96FF 75%,#FF6B9D 100%)", text:"#fff", design:"Edición Especial · Fiesta", price:100, type:"especial" },
+  { id:34, name:"Confeti Rosa",      icon:"🎀",  color:"linear-gradient(135deg,#FFB6C1 0%,#FF85A1 40%,#FFD6E0 70%,#FFC0CB 100%)", text:"#8B2252", design:"Edición Especial · Rosa Fiesta",     price:100, type:"especial" },
+  // ─── RARA ───
+  { id:35, name:"Galaxia",           icon:"🌌",  color:"linear-gradient(135deg,#0D0D2B 0%,#1A1A4E 25%,#2D1B69 50%,#0D0D2B 80%)",  text:"#C8B0FF", design:"Edición Rara · Cosmos",              price:100, type:"rara" },
+  { id:36, name:"Neón Verde",        icon:"💚",  color:"linear-gradient(135deg,#0D1B0D 0%,#003B00 30%,#00C820 60%,#39FF14 100%)", text:"#39FF14",  design:"Edición Rara · Neon Glow",           price:100, type:"rara" },
+  { id:37, name:"Neón Rosa",         icon:"🩷",  color:"linear-gradient(135deg,#1A001A 0%,#6B006B 30%,#DD00AA 65%,#FF69B4 100%)", text:"#FF69B4",  design:"Edición Rara · Neon Pink",           price:100, type:"rara" },
+  { id:38, name:"Cookies & Cream",   icon:"🍪",  color:"linear-gradient(135deg,#1A1A1A 0%,#3D3D3D 30%,#F0F0E8 55%,#3D3D3D 75%,#1A1A1A 100%)", text:"#F0F0E8", design:"Edición Rara · Mármol Negro", price:100, type:"rara" },
+  { id:39, name:"Terrazo",           icon:"🪨",  color:"linear-gradient(135deg,#F5F0E8 0%,#DDD8C8 25%,#F5F0E8 50%,#C8B8A0 70%,#E8E0D0 100%)", text:"#5D4037", design:"Edición Rara · Textura Única", price:100, type:"rara" },
+  { id:40, name:"Aurora Boreal",     icon:"🌌",  color:"linear-gradient(135deg,#0A1628 0%,#0B3D6E 20%,#0E7C6A 40%,#2D9A6A 60%,#7B4F9E 80%,#0A1628 100%)", text:"#A8F0E0", design:"Edición Rara · Luces del Norte", price:100, type:"rara" },
+  { id:41, name:"Nebulosa",          icon:"🔭",  color:"linear-gradient(135deg,#1A0533 0%,#4A0080 25%,#800080 48%,#CC3399 70%,#FF6699 88%,#1A0533 100%)", text:"#FFD0F0", design:"Edición Rara · Deep Space", price:100, type:"rara" },
+  { id:42, name:"Mármol Rosa",       icon:"🌸",  color:"linear-gradient(135deg,#F8E8F0 0%,#E8C0D0 25%,#F8E8F0 55%,#D0A0B8 75%,#F0D8E8 100%)", text:"#8B4060", design:"Edición Rara · Marble Rose",   price:100, type:"rara" },
+  { id:43, name:"Mármol Azul",       icon:"💎",  color:"linear-gradient(135deg,#E8F0F8 0%,#B8C8E8 25%,#E8F0F8 55%,#8898C8 75%,#D0E0F0 100%)", text:"#1a3a6a", design:"Edición Rara · Marble Blue",  price:100, type:"rara" },
+  { id:44, name:"Mármol Morado",     icon:"🟣",  color:"linear-gradient(135deg,#EEE8F8 0%,#C8B0E8 25%,#EEE8F8 55%,#A888D0 75%,#E0D0F0 100%)", text:"#4a2080", design:"Edición Rara · Marble Purple", price:100, type:"rara" },
 ];
 
 const CART_KEY = 'sticky-cards-cart';
@@ -1359,7 +1399,7 @@ function saveCart() { localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
    RENDER FEATURED PRODUCTS (3 items)
 ══════════════════════════════════════ */
 function renderProducts() {
-  const featured = [PRODUCTS[0], PRODUCTS[2], PRODUCTS[9]]; // Negro, Turquesa, Corazón Rosa
+  const featured = [PRODUCTS[23], PRODUCTS[25], PRODUCTS[34]]; // Negro (Normal), Arcoiris (Especial), Galaxia (Rara)
   const grid = document.getElementById('productsGrid');
 
   grid.innerHTML = featured.map((p, i) => `
@@ -1372,7 +1412,7 @@ function renderProducts() {
       aria-label="${p.name} — ver en tienda"
     >
       <div class="p-visual" style="background:${p.color}">
-        ${p.type === 'special' ? '<div class="p-special-tag">⭐ Especial</div>' : ''}
+        ${p.type === 'especial' ? '<div class="p-special-tag">⭐ Especial</div>' : p.type === 'rara' ? '<div class="p-special-tag p-rara-tag">💫 Rara</div>' : ''}
         <span class="p-icon" role="img" aria-label="${p.design}">${p.icon}</span>
       </div>
       <div class="p-info">
@@ -1391,8 +1431,8 @@ function renderProducts() {
   `).join('') + `
     <a href="productos.html" class="see-all-card fade-up" style="transition-delay:0.21s" aria-label="Ver todos los productos">
       <div class="see-all-card-icon">🛍️</div>
-      <div class="see-all-card-text">Ver los 11 diseños</div>
-      <div class="see-all-card-sub">Regular + Ediciones especiales</div>
+      <div class="see-all-card-text">Ver los 44 diseños</div>
+      <div class="see-all-card-sub">Normal · Especial · Rara</div>
     </a>`;
 
   requestAnimationFrame(() => {
